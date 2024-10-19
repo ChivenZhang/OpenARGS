@@ -12,7 +12,7 @@
 			"ctestCommandArgs": "",
 			"variables": [
 				{
-					"name": "OPENARG_ENABLE_SAMPLE",
+					"name": "OPENARGS_ENABLE_SAMPLE",
 					"value": "True",
 					"type": "BOOL"
 				}

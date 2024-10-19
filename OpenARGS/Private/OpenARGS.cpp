@@ -1,25 +1,25 @@
-#include "OpenARG.h"
-#include "OpenARG.h"
-#include "OpenARG.h"
-#include "OpenARG.h"
-#include "OpenARG.h"
-#include "OpenARG.h"
-#include "OpenARG.h"
-#include "OpenARG.h"
-#include "OpenARG.h"
-#include "OpenARG.h"
+#include "OpenARGS.h"
+#include "OpenARGS.h"
+#include "OpenARGS.h"
+#include "OpenARGS.h"
+#include "OpenARGS.h"
+#include "OpenARGS.h"
+#include "OpenARGS.h"
+#include "OpenARGS.h"
+#include "OpenARGS.h"
+#include "OpenARGS.h"
 #include <iostream>
 #include <map>
 
-struct OpenARGPrivate : public OpenARG::data_t
+struct OpenARGSPrivate : public OpenARGS::data_t
 {
-	std::vector<OpenARG::item_t> Items;
+	std::vector<OpenARGS::item_t> Items;
 };
-#define PRIVATE() ((OpenARGPrivate*)m_Private)
+#define PRIVATE() ((OpenARGSPrivate*)m_Private)
 
-OpenARG::OpenARG(int argc, char** argv)
+OpenARGS::OpenARGS(int argc, char** argv)
 {
-	m_Private = new OpenARGPrivate;
+	m_Private = new OpenARGSPrivate;
 
 	std::vector<item_t> items;
 	for (size_t i = 0; i < argc && argv && argv[i]; ++i)
@@ -70,7 +70,7 @@ OpenARG::OpenARG(int argc, char** argv)
 	PRIVATE()->Items = std::move(items);
 }
 
-OpenARG::OpenARG(std::string const& args)
+OpenARGS::OpenARGS(std::string const& args)
 {
 	std::vector<std::string> items;
 
@@ -98,27 +98,27 @@ OpenARG::OpenARG(std::string const& args)
 	for (size_t i = 0; i < items.size(); ++i) newArgs.push_back(items[i].c_str());
 	auto argc = (int32_t)newArgs.size();
 	auto argv = const_cast<char**>(newArgs.data());
-	new (this)OpenARG(argc, argv);
+	new (this)OpenARGS(argc, argv);
 }
 
-OpenARG::~OpenARG()
+OpenARGS::~OpenARGS()
 {
 	delete m_Private; m_Private = nullptr;
 }
 
-OpenARG::item_t const& OpenARG::item(size_t index) const
+OpenARGS::item_t const& OpenARGS::item(size_t index) const
 {
 	static const item_t NonItem;
 	if (index < PRIVATE()->Items.size()) return PRIVATE()->Items[index];
 	return NonItem;
 }
 
-std::vector<OpenARG::item_t> const& OpenARG::items() const
+std::vector<OpenARGS::item_t> const& OpenARGS::items() const
 {
 	return PRIVATE()->Items;
 }
 
-bool OpenARG::exist(std::string const& name) const
+bool OpenARGS::exist(std::string const& name) const
 {
 	auto& items = PRIVATE()->Items;
 	auto result = std::find_if(items.begin(), items.end(), [&name](item_t& e)->bool { return e.Name == name; });
@@ -126,7 +126,7 @@ bool OpenARG::exist(std::string const& name) const
 	return true;
 }
 
-bool OpenARG::index(std::string const& name, size_t& index) const
+bool OpenARGS::index(std::string const& name, size_t& index) const
 {
 	auto& items = PRIVATE()->Items;
 	auto result = std::find_if(items.begin(), items.end(), [&name](item_t& e)->bool { return e.Name == name; });
@@ -135,7 +135,7 @@ bool OpenARG::index(std::string const& name, size_t& index) const
 	return true;
 }
 
-bool OpenARG::index(std::string const& name, std::vector<size_t>& result) const
+bool OpenARGS::index(std::string const& name, std::vector<size_t>& result) const
 {
 	auto size = result.size();
 	auto& items = PRIVATE()->Items;
@@ -144,7 +144,7 @@ bool OpenARG::index(std::string const& name, std::vector<size_t>& result) const
 	return size != result.size();
 }
 
-std::string OpenARG::value(std::string const& name, std::string const& value) const
+std::string OpenARGS::value(std::string const& name, std::string const& value) const
 {
 	auto& items = PRIVATE()->Items;
 	auto result = std::find_if(items.begin(), items.end(), [&name](item_t& e)->bool { return e.Name == name; });

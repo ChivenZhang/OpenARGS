@@ -1,18 +1,18 @@
-# OpenARG
+# OpenARGS
 Command Line Parser
 
 # Example
 ```cpp
 #include <iostream>
-#include <OpenARG/OpenARG.h>
+#include <OpenARGS/OpenARGS.h>
 
 int main(int argc, char** argv)
 {
 	auto text = R"(gcc -Wp,-MD,usr/.gen_init_cpio.d -"Unused"="Foo" -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -o "usr/gen_init_cpio" usr/gen_init_cpio.c)";
 	std::cout << text << std::endl;
 
-	OpenARG args(text);
-	//OpenARG args(argc, argv);
+	OpenARGS args(text);
+	//OpenARGS args(argc, argv);
 
 	std::cout << std::endl << ">> PARSE <<" << std::endl;
 	auto items = args.items();

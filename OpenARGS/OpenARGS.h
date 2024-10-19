@@ -3,7 +3,7 @@
 #include <vector>
 
 /// @brief GNU-Style Command Parser
-class OpenARG
+class OpenARGS
 {
 public:
 	using item_t = struct
@@ -16,11 +16,11 @@ public:
 	};
 
 public:
-	OpenARG(int argc, char** argv);
+	OpenARGS(int argc, char** argv);
 
-	OpenARG(std::string const& args);
+	OpenARGS(std::string const& args);
 
-	~OpenARG();
+	~OpenARGS();
 
 	/// @brief Get item at index
 	/// @param index 
