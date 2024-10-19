@@ -76,10 +76,7 @@ OpenARGS::OpenARGS(std::string const& args)
 		}
 		else
 		{
-			if (i + 1 == args.size())
-			{
-				items.push_back(args.substr(s));
-			}
+			if (i + 1 == args.size()) items.push_back(args.substr(s));
 		}
 	}
 
