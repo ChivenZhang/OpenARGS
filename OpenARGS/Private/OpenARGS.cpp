@@ -1,15 +1,4 @@
 #include "OpenARGS.h"
-#include "OpenARGS.h"
-#include "OpenARGS.h"
-#include "OpenARGS.h"
-#include "OpenARGS.h"
-#include "OpenARGS.h"
-#include "OpenARGS.h"
-#include "OpenARGS.h"
-#include "OpenARGS.h"
-#include "OpenARGS.h"
-#include <iostream>
-#include <map>
 
 struct OpenARGSPrivate : public OpenARGS::data_t
 {
