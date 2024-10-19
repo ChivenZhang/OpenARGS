@@ -3,7 +3,7 @@
 
 int main(int argc, char** argv)
 {
-	auto text = R"(gcc -Wp,-MD,usr/.gen_init_cpio.d -"Unused"="Foo" -Wall Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -o "usr/gen_init_cpio" usr/gen_init_cpio.c)";
+	auto text = R"(gcc -Wp,-MD,usr/.gen_init_cpio.d -Wall Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -o "usr/gen_init_cpio" usr/gen_init_cpio.c -U="Foo" --Unused=Foo)";
 	std::cout << text << std::endl;
 
 	OpenARGS args(text);

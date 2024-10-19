@@ -8,7 +8,7 @@ Command Line Parser
 
 int main(int argc, char** argv)
 {
-	auto text = R"(gcc -Wp,-MD,usr/.gen_init_cpio.d -"Unused"="Foo" -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -o "usr/gen_init_cpio" usr/gen_init_cpio.c)";
+	auto text = R"(gcc -Wp,-MD,usr/.gen_init_cpio.d -Wall Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -o "usr/gen_init_cpio" usr/gen_init_cpio.c -U="Foo" --Unused=Foo)";
 	std::cout << text << std::endl;
 
 	OpenARGS args(text);
@@ -42,20 +42,21 @@ int main(int argc, char** argv)
 ```
 
 ```cmd
-gcc -Wp,-MD,usr/.gen_init_cpio.d -"Unused"="Foo" -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -o "usr/gen_init_cpio" usr/gen_init_cpio.c
+gcc -Wp,-MD,usr/.gen_init_cpio.d -Wall Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -o "usr/gen_init_cpio" usr/gen_init_cpio.c -U="Foo" --Unused=Foo
 
 >> PARSE <<
 0: gcc
 1: Wp,-MD,usr/.gen_init_cpio.d
-2: Unused=Foo
-3: Wall
-4: Wmissing-prototypes
-5: Wstrict-prototypes
-6: O2
-7: fomit-frame-pointer
-8: o
-9: usr/gen_init_cpio
-10: usr/gen_init_cpio.c
+2: Wall
+3: Wmissing-prototypes
+4: Wstrict-prototypes
+5: O2
+6: fomit-frame-pointer
+7: o
+8: usr/gen_init_cpio
+9: usr/gen_init_cpio.c
+10: U=Foo
+11: Unused=Foo
 
 >> TEST  <<
 level 1
