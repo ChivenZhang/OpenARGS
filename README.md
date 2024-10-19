@@ -1,5 +1,5 @@
 # OpenARGS
-Command Line Parser
+GNU-Style Command Line Parser
 
 # Example
 ```cpp
