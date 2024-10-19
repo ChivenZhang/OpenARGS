@@ -151,13 +151,3 @@ std::string OpenARG::value(std::string const& name, std::string const& value) co
 	if (result == items.end()) return value;
 	return (*result).Value;
 }
-
-std::vector<std::string> OpenARG::value(std::string const& name, std::vector<std::string> const& value) const
-{
-	std::vector<std::string> result;
-	auto& items = PRIVATE()->Items;
-	for (size_t i = 0; i < items.size(); ++i)
-		if (items[i].Name == name) result.push_back(items[i].Value);
-	if (result.empty()) return value;
-	return result;
-}

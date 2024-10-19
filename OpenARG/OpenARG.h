@@ -54,12 +54,6 @@ public:
 	/// @return 
 	std::string value(std::string const& name, std::string const& value = std::string()) const;
 
-	/// @brief Get swich values if existed, otherwise return default value
-	/// @param name 
-	/// @param value default value
-	/// @return 
-	std::vector<std::string> value(std::string const& name, std::vector<std::string> const& value = {}) const;
-
 protected:
 	data_t* m_Private;
 };

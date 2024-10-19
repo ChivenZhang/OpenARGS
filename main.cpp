@@ -23,6 +23,7 @@ int main(int argc, char** argv)
 	std::cout << std::endl << ">> TEST  <<" << std::endl;
 	std::cout << "level " << args.exist("O2") << std::endl;
 	std::cout << "warn? " << args.exist("Wall") << std::endl;
+	std::cout << "find? " << args.value("Unused") << std::endl;
 
 	size_t index;
 	if (args.index("o", index))
