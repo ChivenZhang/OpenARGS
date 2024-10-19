@@ -28,6 +28,7 @@ int main(int argc, char** argv)
 	std::cout << std::endl << ">> TEST  <<" << std::endl;
 	std::cout << "level " << args.exist("O2") << std::endl;
 	std::cout << "warn? " << args.exist("Wall") << std::endl;
+	std::cout << "find? " << args.value("Unused") << std::endl;
 
 	size_t index;
 	if (args.index("o", index))
@@ -59,6 +60,7 @@ gcc -Wp,-MD,usr/.gen_init_cpio.d -"Unused"="Foo" -Wall -Wmissing-prototypes -Wst
 >> TEST  <<
 level 1
 warn? 1
+find? Foo
 output to usr/gen_init_cpio
 output to usr/gen_init_cpio.c
 ```
