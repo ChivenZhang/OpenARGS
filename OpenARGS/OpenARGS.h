@@ -31,6 +31,14 @@ public:
 	/// @return 
 	std::vector<item_t> const& items() const;
 
+	/// @brief Parse to string
+	/// @return 
+	std::string string() const;
+
+	/// @brief Parse to string list
+	/// @return 
+	std::vector<std::string> array() const;
+
 	/// @brief Check swich existed
 	/// @param name 
 	/// @return 

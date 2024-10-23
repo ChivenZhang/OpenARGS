@@ -104,6 +104,31 @@ std::vector<OpenARGS::item_t> const& OpenARGS::items() const
 	return PRIVATE()->Items;
 }
 
+std::string OpenARGS::string() const
+{
+	std::string result;
+	auto items = array();
+	for (size_t i = 0; i < items.size(); ++i) result += items[i] + " ";
+	return result;
+}
+
+std::vector<std::string> OpenARGS::array() const
+{
+	std::vector<std::string> result;
+	auto& items = PRIVATE()->Items;
+	for (size_t i = 0; i < items.size(); ++i)
+	{
+		auto name = items[i].Name;
+		auto value = items[i].Value;
+		if (name.find(' ') != std::string::npos) name = R"(")" + name + R"(")";
+		if (value.find(' ') != std::string::npos) value = R"(")" + value + R"(")";
+		if (name.size() && value.size()) result.push_back(((name.size() == 1) ? "-" : "--") + name + "=" + value);
+		else if (name.size()) result.push_back(((name.size() == 1) ? "-" : "--") + name);
+		else if (value.size()) result.push_back(value);
+	}
+	return result;
+}
+
 bool OpenARGS::exist(std::string const& name) const
 {
 	auto& items = PRIVATE()->Items;
