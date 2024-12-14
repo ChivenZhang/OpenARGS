@@ -1,4 +1,6 @@
 #include "OpenARGS.h"
+#include <algorithm>
+#include <cstdint>
 
 struct OpenARGSPrivate : public OpenARGS::data_t
 {
