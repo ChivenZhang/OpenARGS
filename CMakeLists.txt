@@ -18,6 +18,7 @@ if(OPENARGS_ENABLE_SAMPLE)
 
 add_executable(Sample
 	main.cpp
+		../../Sample/test.cpp
 )
 target_include_directories(Sample PRIVATE ${CMAKE_SOURCE_DIR}/OpenARGS)
 target_link_libraries(Sample OpenARGS)
